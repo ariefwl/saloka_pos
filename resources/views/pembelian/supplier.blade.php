@@ -1,0 +1,37 @@
+
+<div class="modal fade" id="frmSupplier" tabindex="-1" role="dialog" aria-labelledby="frmSupplier">
+  <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Pilih Supplier</h4>
+            </div>
+            <div class="modal-body">
+                <table id="tblSupplier" class="table table-striped table-bordered">
+                    <thead>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>Telepon</th>
+                        <th>Alamat</th>
+                        <th>Proses</th>
+                    </thead>
+                    <tbody>
+                        @foreach ($supplier as $key => $sup)
+                            <tr>
+                                <td>{{ $key + 1 }}</td>
+                                <td>{{ $sup->nama }}</td>
+                                <td>{{ $sup->alamat }}</td>
+                                <td>{{ $sup->telepon }}</td>
+                                <td>
+                                    <a href="{{ route('pembelian.create', $sup->id_supplier) }}" class="btn btn-success btn-xs btn-flat">
+                                        <i class="fa fa-check-circle"></i> Pilih
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+  </div>
+</div>
